@@ -1,10 +1,10 @@
 //get all recipes to populate table
 async function getRecipes(){
     //get user favorites first
-    let response = await fetch('http://localhost:5000/get_user_info', {method:"POST"});
+    let response = await fetch(`http://${address}/get_user_info`, {method:"POST"});
     let user = await response.json();
 
-    fetch(`http://localhost:5000/all_recipes`, {method:"POST"})
+    fetch(`http://${address}/all_recipes`, {method:"POST"})
         .then(res =>  res.json())
         .then(data =>  {
             if (data != null){
@@ -79,7 +79,7 @@ getRecipes();
 //add favorite functionality
 
 function favorite(recipe_id){
-    fetch(`http://localhost:5000/addFavorite/${recipe_id}`, {method:"POST"})
+    fetch(`http://${address}/addFavorite/${recipe_id}`, {method:"POST"})
         .then(
             document.getElementById(`actions${recipe_id}`).innerHTML = `<a href='/recipes/${recipe_id}'><button class="btn btn-link">view directions</button></a> | <button class="btn btn-link" onclick='unfavorite(${recipe_id})'>unfavorite</button>`,
             document.getElementById(`faveCount${recipe_id}`).innerHTML++
@@ -105,11 +105,11 @@ spiritFilter.onchange = async function () {
     } else {
         document.getElementById("recipes").innerHTML = '';
             //get user favorites first
-    let response = await fetch('http://localhost:5000/get_user_info', {method:"POST"});
+    let response = await fetch(`http://${address}/get_user_info`, {method:"POST"});
     let user = await response.json();
     console.log(user);
 
-    fetch(`http://localhost:5000/all_recipes_by_spirit/${spiritFilter.value}`, {method:"POST"})
+    fetch(`http://${address}/all_recipes_by_spirit/${spiritFilter.value}`, {method:"POST"})
         .then(res =>  res.json())
         .then(data =>  {
             console.log(data);

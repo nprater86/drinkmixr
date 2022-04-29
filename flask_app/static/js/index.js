@@ -8,7 +8,7 @@ registrationForm.onsubmit = function(e){
     // create FormData object from javascript and send it through a fetch post request.
     var form = new FormData(registrationForm);
     // this how we set up a post request and send the form data.
-    fetch("http://localhost:5000/reg_login", { method :'POST', body : form})
+    fetch(`http://${address}/reg_login`, { method :'POST', body : form})
         .then( response => response.json() )
         .then( data => {
             if (data.url){
@@ -32,7 +32,7 @@ loginForm.onsubmit = function(e){
     // create FormData object from javascript and send it through a fetch post request.
     var form = new FormData(loginForm);
     // this how we set up a post request and send the form data.
-    fetch("http://localhost:5000/reg_login", { method :'POST', body : form})
+    fetch(`http://${address}/reg_login`, { method :'POST', body : form})
         .then( response => response.json() )
         .then( data => {
             if (data.url){

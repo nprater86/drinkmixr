@@ -1,7 +1,7 @@
 //Populate table with Recipes
 
 async function getRecipes(){
-    fetch(`http://localhost:5000/recipes_by_user`)
+    fetch(`http://${address}/recipes_by_user`)
         .then(res =>  res.json())
         .then(data =>  {
             if (data != null){
@@ -43,7 +43,7 @@ getRecipes();
 
 async function getFavorites() {
     //get favorites now
-    let response = await fetch('http://localhost:5000/get_user_info', {method:"POST"});
+    let response = await fetch(`http://${address}/get_user_info`, {method:"POST"});
     let user = await response.json();
 
     if (user['favorited_recipes']){
@@ -94,14 +94,14 @@ getFavorites();
 
 function unfavorite(recipe_id) {
     let recipeRow = document.getElementById(`recipe${recipe_id}`);
-    fetch(`http://localhost:5000/unFavorite/${recipe_id}`, {method:"POST"})
+    fetch(`http://${address}/unFavorite/${recipe_id}`, {method:"POST"})
         .then(document.getElementById(`recipe${recipe_id}`).remove())
 }
 
 //Delete recipe then remove it from table
 
 function deleteRecipe(recipe_id){
-    fetch(`http://localhost:5000/delete_recipe/${recipe_id}`, {method:"POST"})
+    fetch(`http://${address}/delete_recipe/${recipe_id}`, {method:"POST"})
         .then(res => res.json())
         .then(data => {
             let deleted_recipe = document.getElementById(`recipe${data.deleted_id}`);
@@ -268,7 +268,7 @@ createNew.onsubmit = function(e) {
     let form = new FormData(createNew);
     form.append("file", fileupload.files[0]);
 
-    fetch("http://localhost:5000/recipes/new/create", {method:"POST", body:form})
+    fetch(`http://${address}/recipes/new/create`, {method:"POST", body:form})
         .then( res => res.json())
         .then( data => {
             document.getElementById('recipes').innerHTML = '';
@@ -288,7 +288,7 @@ let editIngredientCount = 1;
 async function editFormDropdown(recipe_id){
     resetEditForm();
 
-    let response = await fetch(`http://localhost:5000/recipes/edit/${recipe_id}`, {method:"POST"})
+    let response = await fetch(`http://${address}/recipes/edit/${recipe_id}`, {method:"POST"})
     let recipe = await response.json();
 
     //prefill the easy things
@@ -540,7 +540,7 @@ updateRecipe.onsubmit = function (e) {
     let form = new FormData(updateRecipe);
     form.append("file", filereupload.files[0]);
 
-    fetch("http://localhost:5000/recipes/update", {method:"POST", body:form})
+    fetch(`http://${address}/recipes/update`, {method:"POST", body:form})
 
     resetEditForm();
     document.getElementById('recipes').innerHTML = '';

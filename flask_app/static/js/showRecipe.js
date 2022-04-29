@@ -6,7 +6,7 @@ function getRecipe () {
     let recipe_id = document.getElementById("hiddenRecipeId").value;
     let user_id = document.getElementById("hiddenUserId").value;
 
-    fetch(`http://localhost:5000/recipes/get/${recipe_id}`)
+    fetch(`http://${address}/recipes/get/${recipe_id}`)
         .then(res =>  res.json())
         .then(data => {
             //Show/display faveBtn
@@ -92,7 +92,7 @@ getRecipe();
 //add favorite functionality
 
 function favorite(recipe_id){
-    fetch(`http://localhost:5000/addFavorite/${recipe_id}`, {method:"POST"})
+    fetch(`http://${address}/addFavorite/${recipe_id}`, {method:"POST"})
         .then(
             faveBtn.innerHTML = `<button id="faveBtn" class="btn btn-link" onclick="unfavorite(${recipe_id})">Unfavorite</button>`,
             faveCount.innerHTML++
@@ -100,7 +100,7 @@ function favorite(recipe_id){
 }
 
 function unfavorite(recipe_id){
-    fetch(`http://localhost:5000/unFavorite/${recipe_id}`, {method:"POST"})
+    fetch(`http://${address}/unFavorite/${recipe_id}`, {method:"POST"})
     .then(
         faveBtn.innerHTML = `<button id="faveBtn" class="btn btn-link" onclick="favorite(${recipe_id})">Favorite</button>`,
         faveCount.innerHTML--
@@ -131,7 +131,7 @@ addCommentForm.onsubmit = async function (event) {
     let addCommentForm = document.getElementById('addCommentForm');
     let form = new FormData(addCommentForm);
 
-    await fetch("http://localhost:5000/add_comment", {method:"POST", body:form})
+    await fetch(`http://${address}/add_comment`, {method:"POST", body:form})
         .then(res => res.json())
         .then( data => {
             addComment.style.display = "none";
@@ -144,7 +144,7 @@ function refreshComments() {
     let recipe_id = document.getElementById("hiddenRecipeId").value;
     let user_id = document.getElementById("hiddenUserId").value;
 
-    fetch(`http://localhost:5000/recipes/get/${recipe_id}`)
+    fetch(`http://${address}/recipes/get/${recipe_id}`)
         .then(res =>  res.json())
         .then(data => {
             console.log(data);
@@ -185,6 +185,6 @@ function refreshComments() {
 }
 
 function deleteComment(comment_id) {
-    fetch(`http://localhost:5000/delete_comment/${comment_id}`)
+    fetch(`http://${address}/delete_comment/${comment_id}`)
         .then(document.getElementById(`comment${comment_id}`).remove())
 }
