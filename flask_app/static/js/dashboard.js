@@ -142,6 +142,7 @@ function resetCreateForm(){
         ingredientCount--;
     }
     document.getElementById('numOfIngredients').value = ingredientCount;
+    document.getElementById('fileupload').value='';
     deleteIngredient.style.display = "none";
     createForm.style.top = '-1130px';
 }
@@ -289,6 +290,8 @@ async function editFormDropdown(recipe_id){
 
     let response = await fetch(`http://localhost:5000/recipes/edit/${recipe_id}`, {method:"POST"})
     let recipe = await response.json();
+
+    console.log(recipe);
 
     //prefill the easy things
     document.getElementById('hiddenRecipeId').value = recipe['id'];
@@ -511,16 +514,21 @@ let editCancel = document.getElementById("editCancel");
 editCancel.onclick = () => {
     event.preventDefault();
     resetEditForm();
+    editForm.style.top = '-1130px';
 }
 
 function resetEditForm(){
+    document.getElementById("editName").innerHTML = '';
+    document.getElementById("editDescription").innerHTML = '';
+    document.getElementById("editSpiritQuantity").value = 0;
+    document.getElementById('editDirections').innerHTML = '';
+
     while(editIngredientCount > 1){
         document.getElementById(`editIngredientWrapper${editIngredientCount}`).remove();
         editIngredientCount--;
     }
     document.getElementById('editNumOfIngredients').value = editIngredientCount;
     editDeleteIngredient.style.display = "none";
-    editForm.style.top = '-1130px';
     document.getElementById('filereupload').value='';
 }
 
@@ -535,10 +543,10 @@ updateRecipe.onsubmit = function (e) {
     form.append("file", filereupload.files[0]);
 
     fetch("http://localhost:5000/recipes/update", {method:"POST", body:form})
-        .then( res => res.json())
-        .then( data =>  {
-            document.getElementById('recipes').innerHTML = '';
-            getRecipes();
-            resetEditForm();
-        })
+
+    location.reload();
+    // resetEditForm();
+    // document.getElementById('recipes').innerHTML = '';
+    // getRecipes();
+    // editForm.style.top = '-1130px';
 }

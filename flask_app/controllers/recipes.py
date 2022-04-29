@@ -76,7 +76,6 @@ def create_recipe():
 
     Spirit.save_spirit_to_recipe(spirit_data)
 
-
     return jsonify(Recipe.get_recipe_with_spirit_by_recipe_id_json({"id":recipe_id}))
 
 #===============================

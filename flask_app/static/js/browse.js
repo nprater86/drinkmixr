@@ -87,7 +87,7 @@ function favorite(recipe_id){
 }
 
 function unfavorite(recipe_id){
-    fetch(`http://localhost:5000/unFavorite/${recipe_id}`, {method:"POST"})
+    fetch(`http://54.208.181.35/unFavorite/${recipe_id}`, {method:"POST"})
         .then(
             document.getElementById(`actions${recipe_id}`).innerHTML = `<a href='/recipes/${recipe_id}'><button class="btn btn-link">view directions</button></a> | <button class="btn btn-link" onclick='favorite(${recipe_id})'>favorite</button>`,
             document.getElementById(`faveCount${recipe_id}`).innerHTML--

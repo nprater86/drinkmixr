@@ -133,19 +133,18 @@ addCommentForm.onsubmit = (event) => {
 
     fetch("http://localhost:5000/add_comment", {method:"POST", body:form})
 
-    document.getElementById('commentContent').value = '';
-    addComment.style.display = "none";
-    refreshComments();
+    location.reload();
 }
 
 function refreshComments() {
+    console.log("refreshComments!")
     let recipe_id = document.getElementById("hiddenRecipeId").value;
     let user_id = document.getElementById("hiddenUserId").value;
 
     fetch(`http://localhost:5000/recipes/get/${recipe_id}`)
         .then(res =>  res.json())
         .then(data => {
-
+            console.log(data);
             let commentsArea = document.getElementById('commentsArea');
             //wipe comments
             commentsArea.innerHTML = '';
