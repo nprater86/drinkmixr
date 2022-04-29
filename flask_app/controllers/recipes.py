@@ -7,6 +7,7 @@ from flask_app.models.spirit import Spirit
 from werkzeug.utils import secure_filename
 import os
 
+basedir = os.path.abspath(os.path.dirname(__file__))
 UPLOAD_FOLDER = "./flask_app/static/user_images"
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -48,7 +49,7 @@ def create_recipe():
         if file and allowed_file(file.filename):
             filename = str(recipe_id) + secure_filename(file.filename)
             file_url = f'../static/user_images/{filename}'
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(basedir, app.config['UPLOAD_FOLDER'], filename))
 
         recipe_data['image_name'] = filename
         recipe_data['image_url'] = file_url
