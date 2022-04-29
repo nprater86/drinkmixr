@@ -120,7 +120,7 @@ def add_comment():
 
     Comment.save(comment_data)
 
-    return ('', 204)
+    return jsonify(message="success!")
 
 @app.route('/delete_comment/<int:comment_id>')
 def delete_comment(comment_id):

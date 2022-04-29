@@ -125,19 +125,22 @@ function cancelComment(e) {
 
 let addCommentForm = document.getElementById('addCommentForm')
 
-addCommentForm.onsubmit = (event) => {
+addCommentForm.onsubmit = async function (event) {
     event.preventDefault();
 
-    let addCommentForm = document.getElementById('addCommentForm')
+    let addCommentForm = document.getElementById('addCommentForm');
     let form = new FormData(addCommentForm);
 
-    fetch("http://localhost:5000/add_comment", {method:"POST", body:form})
-
-    location.reload();
+    await fetch("http://localhost:5000/add_comment", {method:"POST", body:form})
+        .then(res => res.json())
+        .then( data => {
+            addComment.style.display = "none";
+            document.getElementById('commentContent').value = '';
+            refreshComments();
+        })
 }
 
 function refreshComments() {
-    console.log("refreshComments!")
     let recipe_id = document.getElementById("hiddenRecipeId").value;
     let user_id = document.getElementById("hiddenUserId").value;
 

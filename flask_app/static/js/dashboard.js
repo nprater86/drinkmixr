@@ -291,15 +291,13 @@ async function editFormDropdown(recipe_id){
     let response = await fetch(`http://localhost:5000/recipes/edit/${recipe_id}`, {method:"POST"})
     let recipe = await response.json();
 
-    console.log(recipe);
-
     //prefill the easy things
     document.getElementById('hiddenRecipeId').value = recipe['id'];
     document.getElementById('editName').value = recipe['name'];
-    document.getElementById('editDescription').innerHTML = recipe['description'];
+    document.getElementById('editDescription').value = recipe['description'];
     document.getElementById('editSpiritQuantity').value = recipe['quantity'];
     document.getElementById('editSpirit').selectedIndex = recipe['spirits.id']-1;
-    document.getElementById('editDirections').innerHTML = recipe['directions'];
+    document.getElementById('editDirections').value = recipe['directions'];
 
     //prefill the ingredient list
 
@@ -519,9 +517,9 @@ editCancel.onclick = () => {
 
 function resetEditForm(){
     document.getElementById("editName").innerHTML = '';
-    document.getElementById("editDescription").innerHTML = '';
+    document.getElementById("editDescription").value = '';
     document.getElementById("editSpiritQuantity").value = 0;
-    document.getElementById('editDirections').innerHTML = '';
+    document.getElementById('editDirections').value = '';
 
     while(editIngredientCount > 1){
         document.getElementById(`editIngredientWrapper${editIngredientCount}`).remove();
@@ -544,9 +542,8 @@ updateRecipe.onsubmit = function (e) {
 
     fetch("http://localhost:5000/recipes/update", {method:"POST", body:form})
 
-    location.reload();
-    // resetEditForm();
-    // document.getElementById('recipes').innerHTML = '';
-    // getRecipes();
-    // editForm.style.top = '-1130px';
+    resetEditForm();
+    document.getElementById('recipes').innerHTML = '';
+    getRecipes();
+    editForm.style.top = '-1130px';
 }
