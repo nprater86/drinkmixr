@@ -7,7 +7,7 @@ from flask_app.models.spirit import Spirit
 from werkzeug.utils import secure_filename
 import os
 
-UPLOAD_FOLDER = "./flask_app/static/user_images/"
+UPLOAD_FOLDER = "flask_app\\static\\user_images"
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
