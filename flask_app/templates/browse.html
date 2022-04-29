@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='../static/css/style.css')}}">
+    <script src="https://kit.fontawesome.com/e0ad2921e4.js" crossorigin="anonymous"></script>
+    <title>DrinkMixr | MyBar</title>
+</head>
+<body>
+    <header>
+        <div class="headerContent">
+            <h1><i class="fa-solid fa-martini-glass"></i>DrinkMixr | <span id="loggedUser">Welcome {{ session['first_name'] }}!</span></h1>
+            <nav class="navbar">
+                <a class="navbar-brand" href="/dashboard">MyBar</a>
+                <a class="navbar-brand" href="/logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Drop Down Forms -->
+    <!-- Create -->
+    <div class="content">
+        <!-- All Recipes -->
+        <div class="dashboardDisplay">
+            <h2>All Recipes:</h2>
+            <div class="spiritFilter">
+                <label for="spiritFilter">Spirit:</label>
+                <select name="spiritFilter" id="spiritFilter">
+                    <option value="0">All</option>
+                    <option value="1">Vodka</option>
+                    <option value="2">Tequila</option>
+                    <option value="3">Gin</option>
+                    <option value="4">Rum</option>
+                    <option value="5">Whiskey</option>
+                    <option value="6">Mezcal</option>
+                    <option value="7">Brandy</option>
+                </select>
+            </div>
+            <div class="tableWrap">
+                <table class="table table-striped" id="browser">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" style="width: 110px" onclick="sortTable(0)" class="hover">Favorited <i class="fa-solid fa-sort"></i></th>
+                            <th scope="col" style="width: 100px" onclick="sortTable(1)" class="hover">Name <i class="fa-solid fa-sort"></i></th>
+                            <th scope="col" style="width: 84.766px">Creator</th>
+                            <th scope="col" style="width: 350px">Description</th>
+                            <th scope="col" style="width: 50px">Spirit</th>
+                            <th scope="col" style="width: 265px">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recipes">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='../static/js/browse.js') }}" async></script>
+</body>
+</html>

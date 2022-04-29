@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
+    <script src="https://kit.fontawesome.com/e0ad2921e4.js" crossorigin="anonymous"></script>
+    <title>DrinkMixr | Login</title>
+</head>
+<body>
+    <header>
+        <div class="headerContent">
+            <h1><i class="fa-solid fa-martini-glass"></i>DrinkMixr</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+                <div id="registerDisplay" class="formBox">
+                    <h2>Register</h2>
+                    <form method="post" id="registration">
+                        <input type="hidden" name="which_form" value="register">
+                        <div class="formWrapper">
+                            <label class="form-label" for="first_name">First Name: </label>
+                            <input class="form-control" type="text" name="first_name">
+                            <p class="error" id="fnameError"></p>
+                        </div>
+                        <div class="formWrapper">
+                            <label class="form-label" for="last_name">Last Name: </label>
+                            <input class="form-control" type="text" name="last_name">
+                            <p class="error" id="lnameError"></p>
+                        </div>
+                        <div class="formWrapper">
+                            <label class="form-label" for="email">Email: </label>
+                            <input class="form-control" type="email" name="email">
+                            <p class="error" id="emailError"></p>
+                        </div>
+                        <div class="formWrapper">
+                            <label class="form-label" for="birthday">Birthday: </label>
+                            <input class="form-control" type="date" name="birthday">
+                            <p class="error" id="birthdayError"></p>
+                        </div>
+                        <div class="formWrapper">
+                            <label class="form-label" for="user_name">User Name: </label>
+                            <input class="form-control" type="text" name="user_name">
+                            <p class="error" id="usernameError"></p>
+                        </div>
+                        <div class="formWrapper">
+                            <label class="form-label" for="password">Password: </label>
+                            <input class="form-control" type="password" name="password">
+                        </div>
+                        <div class="formWrapper">
+                            <label class="form-label" for="password_check">Confirm Password: </label>
+                            <input class="form-control" type="password" name="password_check">
+                            <p class="error" id="passwordError"></p>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Register</button>
+                    </form>
+                    <a id="toggleLogin" class="toggleLink" href="#">Already a member? Login here.</a>
+                </div>
+                <div id="loginDisplay" class="formBox">
+                    <h2>Login</h2>
+                    <form method="post" id="login">
+                        <input type="hidden" name="which_form" value="login">
+                        <div class="formWrapper">
+                            <label class="form-label" for="email">Email: </label>
+                            <input class="form-control" type="text" name="email">
+                        </div>
+                        <div class="formWrapper">
+                            <label class="form-label" for="password">Password: </label>
+                            <input class="form-control" type="password" name="password">
+                            <p class="error" id="loginError"></p>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Login</button>
+                    </form>
+                    <a id="toggleRegister" class="toggleLink" href="#">Not a member? Register here.</a>
+                </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='../static/js/index.js') }}" async></script> 
+</body>
+</html>

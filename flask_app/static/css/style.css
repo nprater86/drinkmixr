@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #223843;
+    --secondary-color: #EFF1F3;
+    --tertiary-color: #DBD3D8;
+    --primary-font: 'Oswald', sans-serif;
+}
+
+
+.error {
+    color: red;
+    margin-top: 1px;
+}
+
+body {
+    background-color: var(--secondary-color);
+    font-family: var(--primary-font);
+    letter-spacing: 0.5px;
+}
+
+/* header styles */
+header {
+    width: 100%;
+    height: 75px;
+    background-color: var(--primary-color);
+}
+
+header .btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+}
+
+.headerContent {
+    height: inherit;
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: var(--secondary-color);
+}
+
+header nav {
+    display: flex;
+    gap: 25px;
+    color: var(--secondary-color);
+}
+
+header nav a{
+    color: var(--secondary-color);
+}
+
+#loggedUser {
+    font-size:24px;
+}
+
+/* Login Styles */
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.formBox {
+    background-color: var(--tertiary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 6px;
+    color: var(--primary-color);
+    width: 35%;
+}
+
+.formBox .btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+}
+
+.toggleLink {
+    margin-top: 25px;
+    align-self: flex-end;
+}
+
+#registerDisplay {
+    display: none;
+}
+
+.formBox form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formBox button {
+    width: 100px;
+    align-self: center;
+}
+
+/* content styles */
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+/* dashboard styles */
+
+.dashboardDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.actionsColumn {
+    width: 310px;
+    justify-content: center;
+}
+
+.tableWrap {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--tertiary-color);
+}
+
+table tbody {
+    background-color: var(--secondary-color);
+}
+
+/* create/edit styles */
+
+.createDisplay, .editDisplay {
+    display: flex;
+    padding: 25px;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    position: absolute;
+    border: 2px solid var(--tertiary-color);
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    margin-left: -286.20px;
+    transition: top 0.5s ease-out;
+    top: -1130px;
+    width: 572.4px;
+}
+
+.createDisplay form, .editDisplay form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.spiritWrapper {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.spiritWrapper input {
+    height: 38px;
+    border: 1px solid #ced4da;
+    padding: 6px;
+    border-radius: .25rem;
+    text-align: right;
+}
+
+.spiritWrapper select {
+    width: 150px;
+}
+
+#fileupload, #filereupload {
+    width: 50%;
+}
+
+.formBtn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    width: 30%;
+    align-self: center;
+}
+
+.createDisplay textarea, .editDisplay textarea {
+    resize: none;
+}
+
+/* show recipe styles */
+
+.recipeContent {
+    flex-direction: column;
+}
+
+.recipeDetails {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px;
+    background-color: var(--tertiary-color);
+    border-radius: 10px;
+}
+
+.recipeInfo {
+    display: flex;
+    gap: 25px;
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+
+.favoriteInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    align-self: flex-end;
+}
+
+.favoriteInfo h6 {
+    margin-bottom: 0;
+}
+
+.favoriteInfo button {
+    flex: 1;
+    width: 87px;
+}
+
+.imageBox img{
+    height: 200px;
+    width: auto;
+    flex: 1;
+    border-radius: 10px;
+}
+
+.ingredientsBox {
+    flex: 2;
+}
+
+.directionsBox {
+    flex: 4;
+}
+
+.ingredientsBox li {
+    margin-bottom: 10px;
+}
+
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+.commentsHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#addComment{
+    align-self: flex-start;
+    padding: 15px;
+    border: 2px solid var(--tertiary-color);
+    width: 100%;
+    display: none;
+    position: absolute;
+    width:1000px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+#addCommentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#addCommentForm .btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+}
+
+#commentContent {
+    resize: none;
+    width: 100%;
+    padding: 5px;
+    display: block;
+    border-radius: .25rem;
+}
+
+#commentsArea {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.commentBox {
+    align-self: flex-start;
+    padding: 15px;
+    border: 2px solid var(--tertiary-color);
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Browse Styles */
+
+.spiritFilter {
+    display: flex;
+    gap: 15px;
+}
+
+.hover:hover {
+    cursor: pointer;
+}
