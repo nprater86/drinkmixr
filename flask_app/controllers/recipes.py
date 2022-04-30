@@ -6,8 +6,9 @@ from flask_app.models.ingredient import Ingredient
 from flask_app.models.spirit import Spirit
 from werkzeug.utils import secure_filename
 import os
+from os.path import join, dirname, realpath
 
-UPLOAD_FOLDER = "flask_app\\static\\user_images\\"
+UPLOAD_FOLDER = join(dirname(realpath(__file__)), '..\\static\\user_images')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
