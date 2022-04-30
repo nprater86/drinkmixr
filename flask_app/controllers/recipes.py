@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 import os
 from os.path import join, dirname, realpath
 
-UPLOAD_FOLDER = 'user_images'
+UPLOAD_FOLDER = "./flask_app/static/user_images"
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
