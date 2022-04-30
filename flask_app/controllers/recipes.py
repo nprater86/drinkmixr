@@ -174,7 +174,7 @@ def edit_recipe():
 
         if file and allowed_file(file.filename):
             filename = str( recipe.id ) + secure_filename(file.filename)
-            file_url = f'../static/user_images/{filename}'
+            file_url = f'./user_images/{filename}'
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
     #if no new image was selected, then just keep old image info
