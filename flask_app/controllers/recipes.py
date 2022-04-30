@@ -48,6 +48,7 @@ def create_recipe():
         if file and allowed_file(file.filename):
             filename = str(recipe_id) + secure_filename(file.filename)
             file_url = f'../static/user_images/{filename}'
+            print(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
         recipe_data['image_name'] = filename
