@@ -36,7 +36,7 @@
                 <div class="recipeInfo">
                     <div class="imageBox">
                         {% if recipe.image_url != None %}
-                        <img src="{{ recipe.image_url }}" alt="image of the {{ recipe.image_url }}">
+                        <img src="{{ recipe.image_url }}" alt="image of the {{ recipe.image_name }}">
                         {% else %}
                         <img src="../static/user_images/No_image_available.png" alt="no image available">
                         {% endif %}
