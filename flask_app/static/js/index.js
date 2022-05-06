@@ -5,10 +5,9 @@ let flashMessages = document.getElementById('registrationErrors');
 registrationForm.onsubmit = function(e){
     e.preventDefault();
 
-    // create FormData object from javascript and send it through a fetch post request.
     var form = new FormData(registrationForm);
-    // this how we set up a post request and send the form data.
-    fetch(`http://${address}/reg_login`, { method :'POST', body : form})
+
+    fetch(`http://${address}/reg_login`, { method:'POST', body:form } )
         .then( response => response.json() )
         .then( data => {
             if (data.url){
@@ -23,16 +22,14 @@ registrationForm.onsubmit = function(e){
                 document.getElementById('birthdayError').innerHTML = data.age;
             }
         })
-
 }
 
-loginForm.onsubmit = function(){
+loginForm.onsubmit = function(e){
     e.preventDefault();
 
-    // create FormData object from javascript and send it through a fetch post request.
     var form = new FormData(loginForm);
-    // this how we set up a post request and send the form data.
-    fetch(`http://${address}/reg_login`, { method :'POST', body : form})
+
+    fetch(`http://${address}/reg_login`, { method:"POST", body:form } )
         .then( response => response.json() )
         .then( data => {
             if (data.url){

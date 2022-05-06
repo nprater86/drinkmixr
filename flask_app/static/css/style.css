@@ -35,18 +35,6 @@ body {
 }
 
 /* Login Styles */
-.container {
-    width: 1000px;
-    margin: 0 auto;
-}
-
-.content {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 50px;
-}
-
 .formBox {
     background-color: var(--tertiary-color);
     display: flex;
@@ -54,7 +42,7 @@ body {
     padding: 25px;
     border-radius: 6px;
     color: var(--primary-color);
-    width: 35%;
+    width: 400px;
 }
 
 .formBox .btn {

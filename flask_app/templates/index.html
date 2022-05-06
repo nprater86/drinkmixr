@@ -20,67 +20,65 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="content">
-                <div id="registerDisplay" class="formBox">
-                    <h2>Register</h2>
-                    <form method="post" id="registration">
-                        <input type="hidden" name="which_form" value="register">
-                        <div class="formWrapper">
-                            <label class="form-label" for="first_name">First Name: </label>
-                            <input class="form-control" type="text" name="first_name">
-                            <p class="error" id="fnameError"></p>
-                        </div>
-                        <div class="formWrapper">
-                            <label class="form-label" for="last_name">Last Name: </label>
-                            <input class="form-control" type="text" name="last_name">
-                            <p class="error" id="lnameError"></p>
-                        </div>
-                        <div class="formWrapper">
-                            <label class="form-label" for="email">Email: </label>
-                            <input class="form-control" type="email" name="email">
-                            <p class="error" id="emailError"></p>
-                        </div>
-                        <div class="formWrapper">
-                            <label class="form-label" for="birthday">Birthday: </label>
-                            <input class="form-control" type="date" name="birthday">
-                            <p class="error" id="birthdayError"></p>
-                        </div>
-                        <div class="formWrapper">
-                            <label class="form-label" for="user_name">User Name: </label>
-                            <input class="form-control" type="text" name="user_name">
-                            <p class="error" id="usernameError"></p>
-                        </div>
-                        <div class="formWrapper">
-                            <label class="form-label" for="password">Password: </label>
-                            <input class="form-control" type="password" name="password">
-                        </div>
-                        <div class="formWrapper">
-                            <label class="form-label" for="password_check">Confirm Password: </label>
-                            <input class="form-control" type="password" name="password_check">
-                            <p class="error" id="passwordError"></p>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Register</button>
-                    </form>
-                    <a id="toggleLogin" class="toggleLink" href="#">Already a member? Login here.</a>
+    <div class="container d-flex justify-content-center mt-5">
+        <div id="registerDisplay" class="formBox">
+            <h2>Register</h2>
+            <form method="post" id="registration">
+                <input type="hidden" name="which_form" value="register">
+                <div class="formWrapper">
+                    <label class="form-label" for="first_name">First Name: </label>
+                    <input class="form-control" type="text" name="first_name">
+                    <p class="error" id="fnameError"></p>
                 </div>
-                <div id="loginDisplay" class="formBox">
-                    <h2>Login</h2>
-                    <form method="post" id="login">
-                        <input type="hidden" name="which_form" value="login">
-                        <div class="formWrapper">
-                            <label class="form-label" for="email">Email: </label>
-                            <input class="form-control" type="text" name="email">
-                        </div>
-                        <div class="formWrapper">
-                            <label class="form-label" for="password">Password: </label>
-                            <input class="form-control" type="password" name="password">
-                            <p class="error" id="loginError"></p>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Login</button>
-                    </form>
-                    <a id="toggleRegister" class="toggleLink" href="#">Not a member? Register here.</a>
+                <div class="formWrapper">
+                    <label class="form-label" for="last_name">Last Name: </label>
+                    <input class="form-control" type="text" name="last_name">
+                    <p class="error" id="lnameError"></p>
                 </div>
+                <div class="formWrapper">
+                    <label class="form-label" for="email">Email: </label>
+                    <input class="form-control" type="email" name="email">
+                    <p class="error" id="emailError"></p>
+                </div>
+                <div class="formWrapper">
+                    <label class="form-label" for="birthday">Birthday: </label>
+                    <input class="form-control" type="date" name="birthday">
+                    <p class="error" id="birthdayError"></p>
+                </div>
+                <div class="formWrapper">
+                    <label class="form-label" for="user_name">User Name: </label>
+                    <input class="form-control" type="text" name="user_name">
+                    <p class="error" id="usernameError"></p>
+                </div>
+                <div class="formWrapper">
+                    <label class="form-label" for="password">Password: </label>
+                    <input class="form-control" type="password" name="password">
+                </div>
+                <div class="formWrapper">
+                    <label class="form-label" for="password_check">Confirm Password: </label>
+                    <input class="form-control" type="password" name="password_check">
+                    <p class="error" id="passwordError"></p>
+                </div>
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+            <a id="toggleLogin" class="toggleLink" href="#">Already a member? Login here.</a>
+        </div>
+        <div id="loginDisplay" class="formBox">
+            <h2>Login</h2>
+            <form method="post" id="login">
+                <input type="hidden" name="which_form" value="login">
+                <div class="formWrapper">
+                    <label class="form-label" for="email">Email: </label>
+                    <input class="form-control" type="text" name="email">
+                </div>
+                <div class="formWrapper">
+                    <label class="form-label" for="password">Password: </label>
+                    <input class="form-control" type="password" name="password">
+                    <p class="error" id="loginError"></p>
+                </div>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </form>
+            <a id="toggleRegister" class="toggleLink" href="#">Not a member? Register here.</a>
         </div>
     </div>
     <script src="{{ url_for('static', filename='../static/js/global.js') }}"></script>
