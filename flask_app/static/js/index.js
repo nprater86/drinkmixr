@@ -26,7 +26,7 @@ registrationForm.onsubmit = function(e){
 
 }
 
-loginForm.onsubmit = function(e){
+loginForm.onsubmit = function(){
     e.preventDefault();
 
     // create FormData object from javascript and send it through a fetch post request.

@@ -114,7 +114,8 @@ function deleteRecipe(recipe_id){
 let createBtn = document.getElementById("createBtn");
 let createForm = document.getElementById("createForm");
 
-createBtn.onclick = () => {
+createBtn.onclick = (e) => {
+    e.preventDefault();
     resetEditForm();
     resetCreateForm();
     createForm.style.top = '76px';

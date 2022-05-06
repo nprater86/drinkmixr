@@ -13,14 +13,17 @@
     <title>DrinkMixr | MyBar</title>
 </head>
 <body>
-    <header>
-        <div class="headerContent">
-            <h1><i class="fa-solid fa-martini-glass"></i>DrinkMixr | <span id="loggedUser">Welcome {{ session['first_name'] }}!</span></h1>
-            <nav class="navbar">
-                <a class="navbar-brand" href="/dashboard">MyBar</a>
-                <a class="navbar-brand" href="/logout">Logout</a>
-            </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1><i class="fa-solid fa-martini-glass"></i>DrinkMixr | <span id="loggedUser">Welcome {{ session['first_name'] }}!</span></h1>
+            </div>
+            <ul class="nav justify-content-end">
+                <li class="nav-item"><a class="nav-link" href="/dashboard">MyBar</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+            </ul>
         </div>
+    </nav>
     </header>
     <!-- Drop Down Forms -->
     <!-- Create -->
