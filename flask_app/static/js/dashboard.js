@@ -18,6 +18,7 @@ async function getRecipes(){
 
                     let description = document.createElement('td');
                     description.setAttribute("id",`description${data[i].id}`);
+                    description.setAttribute("class","d-none d-lg-block");
                     description.innerHTML = data[i].description;
                     row.appendChild(description);
 
@@ -66,6 +67,7 @@ async function getFavorites() {
 
             let description = document.createElement('td');
             description.setAttribute("id",`description${user['favorited_recipes'][i]['id']}`);
+            description.setAttribute("class","d-none d-lg-block");
             description.innerHTML = user['favorited_recipes'][i]['description'];
             row.appendChild(description);
 
