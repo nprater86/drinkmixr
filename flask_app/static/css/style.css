@@ -42,7 +42,7 @@ body {
     padding: 25px;
     border-radius: 6px;
     color: var(--primary-color);
-    width: 400px;
+    min-width: 400px;
 }
 
 .formBox .btn {
